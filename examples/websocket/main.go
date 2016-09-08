@@ -32,7 +32,7 @@ func echo(ctx *clevergo.Context) {
 }
 
 func home(ctx *clevergo.Context) {
-	ctx.Response.Header.Set("Content-Type", "text/html; charset=utf-8")
+	ctx.SetContentTypeToHTML()
 	homeTemplate.Execute(ctx, "ws://"+string(ctx.Host())+"/echo")
 }
 

@@ -32,7 +32,7 @@ func captchaDisplay(ctx *clevergo.Context) {
 }
 
 func captchaProcess(ctx *clevergo.Context) {
-	ctx.Response.Header.Set("Content-Type", "text/html; charset=utf-8")
+	ctx.SetContentTypeToHTML()
 	if !captcha.VerifyBytes(string(ctx.FormValue("captchaId")), ctx.FormValue("captchaSolution")) {
 		fmt.Fprintf(ctx, "Wrong captcha solution! No robots allowed!\n")
 	} else {
