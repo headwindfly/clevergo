@@ -19,9 +19,7 @@ About the usages of **csrf** package, please refer to https://github.com/cleverg
 go run $GOPATH/src/github.com/headwindfly/clevergo/examples/csrf/main.go
 ```
 
-## Usage
-Please refer to [JSON WEB TOKEN Example](/examples/csrf/main.go).
-
+## Usages
 **Set Error Handler**
 ```
 CSRFMiddleware.SetErrorHandler(handler clevergo.HandlerFunc)
