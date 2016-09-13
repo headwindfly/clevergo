@@ -19,9 +19,9 @@ var (
 			<li><a target="_blank" href="javascript:post('POST');">POST</a></li>
 			<li><a target="_blank" href="javascript:post('DELETE');">DELETE</a></li>
 			<li><a target="_blank" href="javascript:post('PUT');">PUT</a></li>
-			<li><a target="_blank" href="javascript:post('HEAD');">HEAD</a></li>
-			<li><a target="_blank" href="javascript:post('OPTIONS');">OPTIONS</a></li>
-			<li><a target="_blank" href="javascript:post('PATCH');">PATCH</a></li>
+			<li><a target="_blank" href="javascript:post('HEAD');">HEAD (404 NOT FOUND)</a></li>
+			<li><a target="_blank" href="javascript:post('OPTIONS');">OPTIONS (404 NOT FOUND)</a></li>
+			<li><a target="_blank" href="javascript:post('PATCH');">PATCH (404 NOT FOUND)</a></li>
 		</ul>
 
 		<h4>Result:</h4>
@@ -104,34 +104,21 @@ func (m accessControlMiddleware) Handle(next clevergo.Handler) clevergo.Handler 
 }
 
 type userController struct {
-	middlewares []clevergo.Middleware // middlewares for this controller.
-	handler     clevergo.Handler      // for cache the handler.
+	clevergo.Controller
 }
 
 func newUserController(middlewares []clevergo.Middleware) userController {
 	return userController{
-		middlewares: middlewares,
+		Controller: clevergo.Controller{
+			Middlewares: middlewares,
+		},
 	}
 }
 
-// getHandler is the most important method.
-// It made the final handler be wrapped by the middlewares.
-func (c userController) getHandler(next clevergo.Handler) clevergo.Handler {
-	if c.handler == nil {
-		c.handler = clevergo.HandlerFunc(c.handle(next))
-		for i := len(c.middlewares) - 1; i >= 0; i-- {
-			c.handler = c.middlewares[i].Handle(c.handler)
-		}
-	}
-
-	return c.handler
-}
-
-// handle the final handler.
-func (c userController) handle(next clevergo.Handler) clevergo.HandlerFunc {
-	return func(ctx *clevergo.Context) {
+func simulate(c clevergo.ControllerInterface, next clevergo.Handler) clevergo.Handler {
+	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		// Using param named '_method' to simulate the other request, such as PUT, DELETE etc.
-		if !ctx.IsGet() {
+		if ctx.IsPost() {
 			switch string(ctx.FormValue("_method")) {
 			case "PUT":
 				c.PUT(ctx)
@@ -152,40 +139,30 @@ func (c userController) handle(next clevergo.Handler) clevergo.HandlerFunc {
 		}
 
 		next.Handle(ctx)
-	}
+	})
 }
 
 // Handle implemented the Middleware interface.
+//
+// Important note： your controller have to implement the Middleware interface.
 func (c userController) Handle(next clevergo.Handler) clevergo.Handler {
-	return c.getHandler(next)
+	return simulate(c, next)
 }
 
 func (c userController) GET(ctx *clevergo.Context) {
-	ctx.Text("GET REQUEST.\n")
+	ctx.Text("GET handler of userController.")
 }
 
 func (c userController) POST(ctx *clevergo.Context) {
-	ctx.Text("POST REQUEST.\n")
+	ctx.Text("POST handler of userController.")
 }
 
 func (c userController) DELETE(ctx *clevergo.Context) {
-	ctx.Text("DELETE REQUEST.\n")
+	ctx.Text("DELETE handler of userController.")
 }
 
 func (c userController) PUT(ctx *clevergo.Context) {
-	ctx.Text("PUT REQUEST.\n")
-}
-
-func (c userController) OPTIONS(ctx *clevergo.Context) {
-	ctx.Text("OPTIONS REQUEST.\n")
-}
-
-func (c userController) PATCH(ctx *clevergo.Context) {
-	ctx.Text("PATCH REQUEST.\n")
-}
-
-func (c userController) HEAD(ctx *clevergo.Context) {
-	ctx.Text("HEAD REQUEST.\n")
+	ctx.Text("PUT handler of userController.")
 }
 
 func index(ctx *clevergo.Context) {
