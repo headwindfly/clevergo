@@ -132,7 +132,7 @@ func (r *Router) RegisterController(route string, c ControllerInterface) {
 
 	for method, handler := range handlers {
 		var _handler Handler
-		_handler = handler
+		_handler = c.initMiddlewares(c.Handle(handler))
 		// Register middlewares.
 		for i := len(r.middlewares) - 1; i >= 0; i-- {
 			_handler = r.middlewares[i].Handle(_handler)

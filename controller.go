@@ -6,6 +6,8 @@ package clevergo
 type ControllerInterface interface {
 	Handle(next Handler) Handler // Implemented Middleware Interface.
 
+	initMiddlewares(next Handler) Handler // Init the middlewares.
+
 	DELETE(ctx *Context)  // Request handler for DELETE request.
 	GET(ctx *Context)     // Request handler for GET request.
 	HEAD(ctx *Context)    // Request handler for HEAD request.
@@ -15,8 +17,28 @@ type ControllerInterface interface {
 	PUT(ctx *Context)     // Request handler for PUT request.
 }
 
-// Controller is an empty struct.
-type Controller struct{}
+// Controller the conventional RESTful API Controller.
+//
+// Middlewares for the current controller.
+// Important note: the Controller just a sample,
+// it shows that how to create a highly scalable RESTful controller.
+// Example: https://github.com/headwindfly/clevergo/blob/master/examples/restful.
+type Controller struct {
+	Middlewares []Middleware
+}
+
+// initMiddlewares initialize the controller's middleware.
+// Make the controller's handler wraped by additional middlewares.
+func (c Controller) initMiddlewares(next Handler) Handler {
+	var h Handler
+	h = c.Handle(next)
+
+	for i := len(c.Middlewares) - 1; i >= 0; i-- {
+		h = c.Middlewares[i].Handle(h)
+	}
+
+	return h
+}
 
 // Handle implemented Middleware Interface.
 func (c Controller) Handle(next Handler) Handler {
