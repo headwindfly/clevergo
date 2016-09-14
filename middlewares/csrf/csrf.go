@@ -140,7 +140,7 @@ func (m CSRFMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 		// Validate CSRF token.
 		if !safe {
 			if (err != nil) ||
-				((csrf.Validate(m.maskLen, ctx.PostArgs().Peek(m.formKey), trueToken) != nil) &&
+				((csrf.Validate(m.maskLen, ctx.FormValue(m.formKey), trueToken) != nil) &&
 					(csrf.Validate(m.maskLen, ctx.Request.Header.Peek(m.headerKey), trueToken) != nil)) {
 				m.errorHandler(ctx)
 				return
