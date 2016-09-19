@@ -24,6 +24,7 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 5. [**Examples**](#examples)
 6. [**Contribution**](#contribution)
 7. [**Relevant Packages**](#relevant-packages)
+7. [**Actual Applications**](#actual-applications)
 
 
 ## Installation
@@ -130,8 +131,12 @@ Most of packages can be found at https://github.com/clevergo.
 ### Actual Applications
 - [**HeadwindFly.com**](https://github.com/headwindfly/headwindfly.com): https://github.com/headwindfly/headwindfly.com
 
-    1. [Frontend Application](https://headwindfly.com): https://headwindfly.com 
-    2. [Backend Application](http://backend.headwindfly.com): http://backend.headwindfly.com 
+    1. [https://headwindfly.com](http://headwindfly.com)
+    2. [https://docs.headwindfly.com](https://docs.headwindfly.com)
+    3. [https://accounts.headwindfly.com](https://accounts.headwindfly.com)
+    4. [https://backend.headwindfly.com](https://backend.headwindfly.com)
+    5. [https://helpers.headwindfly.com](https://helpers.headwindfly.com)
+    6. [https://api.headwindfly.com](https://api.headwindfly.com)
 
 **How to add my application?**
 
