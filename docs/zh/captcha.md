@@ -18,5 +18,5 @@ go run $GOPATH/src/github.com/headwindfly/clevergo/examples/captcha/main.go
 
 ## Shortcut
 * [目录](README.md)
-* [Captcha Package](https://github.com/headwindfly/captcha)
+* [Captcha包](https://github.com/clevergo/captcha)
 * [Session](session.md)
