@@ -28,8 +28,12 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 
 
 ## Installation
+Because the repository contains multiple versions, `v1`(Stable, on branch `v1`) and `v2`(Developing, on branch `v2`).
+
+It is recommended to install CleverGo using the following command.
+
 ```
-go get github.com/headwindfly/clevergo
+go get gopkg.in/headwindfly/clevergo.v1
 ```
 
 ### Documentation
