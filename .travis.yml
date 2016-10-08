@@ -13,7 +13,6 @@ install:
  - go install -v
 
 go:
- - 1.5.3
  - 1.6
  - 1.7
  - tip
