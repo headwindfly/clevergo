@@ -50,9 +50,9 @@ go get github.com/headwindfly/clevergo
 
 Please refer to [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark) for getting more detail.
 
-- **Lightweight**
+- **Simple**
 
-CleverGo's architecture is very simple, such as the [**Middleware**](middleware.go) and [**Handler**](handler.go).
+CleverGo's architecture is very simple, such as the [**Middleware**](clevergo.go) and [**Handler**](clevergo.go).
 
 - **Easy to use**
 
