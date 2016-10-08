@@ -1,13 +1,16 @@
 language: go
 
+before_install:
+ - go get -v github.com/axw/gocov/gocov
+ - go get -v github.com/clevergo/router
+ - go get -v github.com/clevergo/sessions
+ - go get -v github.com/golang/lint/golint
+ - go get -v github.com/mattn/goveralls
+ - go get -v github.com/valyala/fasthttp
+
 install:
- - go get github.com/clevergo/captcha
- - go get github.com/clevergo/csrf
- - go get github.com/clevergo/jwt
- - go get github.com/clevergo/router
- - go get github.com/clevergo/sessions
- - go get github.com/clevergo/websocket
- - go get github.com/valyala/fasthttp
+ - go get -d -t -v ./...
+ - go install -v
 
 go:
  - 1.5
@@ -16,4 +19,7 @@ go:
  - tip
 
 script:
- - go test -v ./...
+ - go vet ./...
+ - $HOME/gopath/bin/golint ./...
+ - go test -v .
+ - $HOME/gopath/bin/goveralls -service=travis-ci

@@ -28,12 +28,8 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 
 
 ## Installation
-Because the repository contains multiple versions, `v1`(Stable, on branch `v1`) and `v2`(Developing, on branch `v2`).
-
-It is recommended to install CleverGo using the following command.
-
 ```
-go get gopkg.in/headwindfly/clevergo.v1
+go get github.com/headwindfly/clevergo
 ```
 
 ### Documentation
@@ -64,8 +60,6 @@ We provides some examples below, see also [**Examples**](#examples).
 
 - **Multiple Domains**
 
-See also [Application example](examples/application)
-
 [Back to top](#readme)
 
 
@@ -73,9 +67,9 @@ See also [Application example](examples/application)
 
 | Name                 | Description                                   | Usage                                                                              |
 | :---                 | :---------------------------------------------| :----------------------------------------------------------------------------------|
-| **Session Middlware**| Session Middleware                            | [**Session Middlware**](middlewares/session)                                       |
-| **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Middleware**](middlewares/csrf)                                            |
-| **JWT Middleware**   | JSON WEB TOKEN Middleware                     | [**JWT Middleware**](middlewares/jwt)                                              |                       
+| **Session Middlware**| Session Middleware                            | [**Session Middlware**](https://github.com/clevergo/sessionmiddleware)             |
+| **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Middleware**](https://github.com/clevergo/csrfmiddleware)                  |
+| **JWT Middleware**   | JSON WEB TOKEN Middleware                     | [**JWT Middleware**](https://github.com/clevergo/jwtmiddleware)                    |                       
 
 [Back to top](#readme)
 
@@ -83,16 +77,17 @@ See also [Application example](examples/application)
 
 | Name                 | Description                                   | Usage                                                                              |
 | :---                 | :---------------------------------------------| :----------------------------------------------------------------------------------|
-| **Basic Usage**      | Basic Usage                                   | [**Basic Usage**](examples/basic)                                                  |
-| **Middleware**       | Middleware                                    | [**Middleware**](examples/middleware)                                              |
-| **Websocket**        | Websocket                                     | [**Websocket**](examples/websocket)                                                |
-| **Session**          | Session                                       | [**Session**](examples/session)                                                    |
-| **RESTFUL API**      | RESTFUL API                                   | [**Restful API**](examples/restful)                                                |
-| **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Protection**](examples/csrf)                                               |
-| **Captcha**          | Captcha                                       | [**Captcha**](examples/captcha)                                                    |
-| **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](examples/jwt)                                                 |
+| **Basic Usage**      | Basic Usage                                   | [**Basic Usage**](https://github.com/clevergo/examples/tree/master/basic)          |
+| **Application**      | Application                                   | [**Application**](https://github.com/clevergo/examples/tree/master/application)    |
+| **Middleware**       | Middleware                                    | [**Middleware**](https://github.com/clevergo/examples/tree/master/middleware)      |
+| **Websocket**        | Websocket                                     | [**Websocket**](https://github.com/clevergo/examples/tree/master/websocket)        |
+| **Session**          | Session                                       | [**Session**](https://github.com/clevergo/examples/tree/master/session)            |
+| **RESTFUL API**      | RESTFUL API                                   | [**Restful API**](https://github.com/clevergo/examples/tree/master/restful)        |
+| **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Protection**](https://github.com/clevergo/examples/tree/master/csrf)       |
+| **Captcha**          | Captcha                                       | [**Captcha**](https://github.com/clevergo/examples/tree/master/captcha)            |
+| **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)         |
 
-More examples can be found at [Examples](examples).
+More examples can be found at [Examples](https://github.com/clevergo/examples).
 
 [Back to top](#readme)
 

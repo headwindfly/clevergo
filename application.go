@@ -59,15 +59,6 @@ func (a *Application) NewRouter(domain string) *Router {
 //
 // Set the current router as default router if the domain is an empty string.
 func (a *Application) AddRouter(domain string, r *Router) {
-	// Set default session store.
-	if r.sessionStore == nil {
-		r.sessionStore = a.sessionStore
-	}
-
-	// Set default logger.
-	if r.logger == nil {
-		r.logger = a.logger
-	}
 	a.routers[domain] = r
 
 	// Set the current router as default, if the domain is an empty string.
@@ -100,7 +91,7 @@ func (a *Application) Handler(ctx *fasthttp.RequestCtx) {
 	a.defaultRouter.Handler(ctx)
 }
 
-// Run fro starting the application.
+// Run application.
 func (a *Application) Run() {
 	if len(a.routers) == 0 {
 		panic("No router.")
@@ -108,29 +99,31 @@ func (a *Application) Run() {
 
 	handler := a.getHandler()
 
+	info()
+
 	switch a.Config.ServerType {
 	case ServerTypeUNIX:
-		log.Fatal(ListenAndServeUNIX(
+		log.Fatal(fasthttp.ListenAndServeUNIX(
 			a.Config.ServerAddr,
 			a.Config.ServerMode,
 			handler,
 		))
 	case ServerTypeTLS:
-		log.Fatal(ListenAndServeTLS(
+		log.Fatal(fasthttp.ListenAndServeTLS(
 			a.Config.ServerAddr,
 			a.Config.ServerCertFile,
 			a.Config.ServerKeyFile,
 			handler,
 		))
 	case ServerTypeTLSEmbed:
-		log.Fatal(ListenAndServeTLSEmbed(
+		log.Fatal(fasthttp.ListenAndServeTLSEmbed(
 			a.Config.ServerAddr,
 			a.Config.ServerCertData,
 			a.Config.ServerKeyData,
 			handler,
 		))
 	default:
-		log.Fatal(ListenAndServe(a.Config.ServerAddr, handler))
+		log.Fatal(fasthttp.ListenAndServe(a.Config.ServerAddr, handler))
 	}
 
 }
