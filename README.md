@@ -7,7 +7,7 @@
 [![GitHub release](https://img.shields.io/github/release/headwindfly/clevergo.svg?maxAge=2592000)](https://github.com/headwindfly/clevergo/releases)
 [![codebeat badge](https://codebeat.co/badges/45b10850-bf4e-40aa-b82a-48d10f2fd5aa)](https://codebeat.co/projects/github-com-headwindfly-clevergo)
 
-[:point_right:] [中文介绍](README_ZH.md)
+:point_right: [中文介绍](README_ZH.md)
 
 **CleverGo** is a **simple**, **high performance** and **secure** web framework for Go (golang programing language).
 It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
@@ -49,6 +49,7 @@ We provides some examples below, see also [**Examples**](#examples).
 ![Benchmark](https://github.com/smallnest/go-web-framework-benchmark/blob/master/benchmark.png)
 
 Further information is available in [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
+
 [Back to top](#readme)
 
 ## Installation

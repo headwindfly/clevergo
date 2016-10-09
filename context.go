@@ -23,8 +23,8 @@ var contextPool = &sync.Pool{
 type Context struct {
 	router *Router
 	*fasthttp.RequestCtx
-	RouterParams *router.Params
-	Session      *sessions.Session
+	Params  *router.Params
+	Session *sessions.Session
 }
 
 // NewContext returns a Context instance.
@@ -36,14 +36,14 @@ func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Contex
 	if context, ok := contextPool.Get().(*Context); ok {
 		context.router = r
 		context.RequestCtx = ctx
-		context.RouterParams = rps
+		context.Params = rps
 		return context
 	}
 
 	return &Context{
-		router:       r,
-		RequestCtx:   ctx,
-		RouterParams: rps,
+		router:     r,
+		RequestCtx: ctx,
+		Params:     rps,
 	}
 }
 
@@ -73,34 +73,34 @@ func (ctx *Context) Logger() fasthttp.Logger {
 }
 
 const (
-	// ContentTypeHTML HTML's ContentType
-	ContentTypeHTML = "text/html; charset=utf-8"
-	// ContentTypeJSON JSON's ContentType
-	ContentTypeJSON = "application/json; charset=utf-8"
-	// ContentTypeJSONP JSONP's ContentType
-	ContentTypeJSONP = "application/javascript; charset=utf-8"
-	// ContentTypeXML XML's ContentType
-	ContentTypeXML = "application/xml; charset=utf-8"
+	// contentTypeHTML HTML's ContentType
+	contentTypeHTML = "text/html; charset=utf-8"
+	// contentTypeJSON JSON's ContentType
+	contentTypeJSON = "application/json; charset=utf-8"
+	// contentTypeJSONP JSONP's ContentType
+	contentTypeJSONP = "application/javascript; charset=utf-8"
+	// contentTypeXML XML's ContentType
+	contentTypeXML = "application/xml; charset=utf-8"
 )
 
 // SetContentTypeToHTML set Content-Type to HTML.
 func (ctx *Context) SetContentTypeToHTML() {
-	ctx.Response.Header.Set("Content-Type", ContentTypeHTML)
+	ctx.Response.Header.Set("Content-Type", contentTypeHTML)
 }
 
 // SetContentTypeToJSON set Content-Type to JSON.
 func (ctx *Context) SetContentTypeToJSON() {
-	ctx.Response.Header.Set("Content-Type", ContentTypeJSON)
+	ctx.Response.Header.Set("Content-Type", contentTypeJSON)
 }
 
 // SetContentTypeToJSONP set Content-Type to JSONP.
 func (ctx *Context) SetContentTypeToJSONP() {
-	ctx.Response.Header.Set("Content-Type", ContentTypeJSONP)
+	ctx.Response.Header.Set("Content-Type", contentTypeJSONP)
 }
 
 // SetContentTypeToXML set Content-Type to XML.
 func (ctx *Context) SetContentTypeToXML() {
-	ctx.Response.Header.Set("Content-Type", ContentTypeXML)
+	ctx.Response.Header.Set("Content-Type", contentTypeXML)
 }
 
 // JSON responses JSON data to client.

@@ -130,6 +130,11 @@ func (r *Router) RegisterController(route string, c ControllerInterface) {
 	patchHandler = c.Handle(HandlerFunc(c.PATCH))
 	handlers["PATCH"] = patchHandler
 
+	// Register HEAD request's handler.
+	var headHandler Handler
+	headHandler = c.Handle(HandlerFunc(c.HEAD))
+	handlers["HEAD"] = headHandler
+
 	for method, handler := range handlers {
 		var _handler Handler
 		_handler = c.initMiddlewares(c.Handle(handler))

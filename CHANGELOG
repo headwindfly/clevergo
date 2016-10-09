@@ -1,0 +1,2 @@
+==================== 2.0.0 ====================
+1. Renamed Context's member RouterParams as Params.

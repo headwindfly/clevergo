@@ -7,22 +7,22 @@
 [![GitHub release](https://img.shields.io/github/release/headwindfly/clevergo.svg?maxAge=2592000)](https://github.com/headwindfly/clevergo/releases)
 [![codebeat badge](https://codebeat.co/badges/45b10850-bf4e-40aa-b82a-48d10f2fd5aa)](https://codebeat.co/projects/github-com-headwindfly-clevergo)
 
-[:point_right:] [English](README.md)
+:point_right: [English](README.md)
 
 **CleverGo** - Go语言编写的简单，高新能，安全的WEB框架，其非常适于设计RESTful API。
 
 CleverGo 不提供**ORM**和**模板引擎**，一是因为不想重复造轮子，二是可以自由选择喜欢的**ORM**和**模板引擎**。
 
-**如果对这个项目有兴趣，非常欢迎一起来维护[:smile:]。**
+**如果对这个项目有兴趣，非常欢迎一起来维护:smile:。**
 
-另外：英文都是机翻的，所以英文说明可能不通顺。。。欢迎纠错[:smile:]。
+另外：英文大多是机翻的，所以英文说明可能不通顺。。。欢迎纠错:smile:。
 
 ## 特性
 - **高性能**
 
-1. 基于 [**fasthttp**](https://github.com/valyala/fasthttp).
-2. [**高性能路由器**](https://github.com/clevergo/router).
-3. 不使用反射.
+1. 基于 [**fasthttp**](https://github.com/valyala/fasthttp)
+2. [**高性能路由器**](https://github.com/clevergo/router)
+3. 不使用Reflect
 
 - **简单**
 
