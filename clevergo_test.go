@@ -584,31 +584,31 @@ type userController struct {
 	Controller
 }
 
-func (c *userController) GET(ctx *Context) {
+func (c userController) GET(ctx *Context) {
 	ctx.Text("GET")
 }
 
-func (c *userController) POST(ctx *Context) {
+func (c userController) POST(ctx *Context) {
 	ctx.Text("POST")
 }
 
-func (c *userController) DELETE(ctx *Context) {
+func (c userController) DELETE(ctx *Context) {
 	ctx.Text("DELETE")
 }
 
-func (c *userController) PUT(ctx *Context) {
+func (c userController) PUT(ctx *Context) {
 	ctx.Text("PUT")
 }
 
-func (c *userController) PATCH(ctx *Context) {
+func (c userController) PATCH(ctx *Context) {
 	ctx.Text("PATCH")
 }
 
-func (c *userController) OPTIONS(ctx *Context) {
+func (c userController) OPTIONS(ctx *Context) {
 	ctx.Text("OPTIONS")
 }
 
-func (c *userController) HEAD(ctx *Context) {
+func (c userController) HEAD(ctx *Context) {
 	ctx.Text("HEAD")
 }
 

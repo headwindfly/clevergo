@@ -33,7 +33,7 @@ func (c *Controller) AddMiddleware(m Middleware) {
 
 // initMiddlewares initialize the controller's middleware.
 // Make the controller's handler wraped by additional middlewares.
-func (c *Controller) initMiddlewares(next Handler) Handler {
+func (c Controller) initMiddlewares(next Handler) Handler {
 	var h Handler
 	h = c.Handle(next)
 
@@ -45,7 +45,7 @@ func (c *Controller) initMiddlewares(next Handler) Handler {
 }
 
 // Handle implemented Middleware Interface.
-func (c *Controller) Handle(next Handler) Handler {
+func (c Controller) Handle(next Handler) Handler {
 	return HandlerFunc(func(ctx *Context) {
 		// Invoke the request handler.
 		next.Handle(ctx)
@@ -53,36 +53,36 @@ func (c *Controller) Handle(next Handler) Handler {
 }
 
 // DELETE for handling the DELETE request.
-func (c *Controller) DELETE(ctx *Context) {
+func (c Controller) DELETE(ctx *Context) {
 	ctx.NotFound()
 }
 
 // GET for handling the GET request.
-func (c *Controller) GET(ctx *Context) {
+func (c Controller) GET(ctx *Context) {
 	ctx.NotFound()
 }
 
 // HEAD for handling the HEAD request.
-func (c *Controller) HEAD(ctx *Context) {
+func (c Controller) HEAD(ctx *Context) {
 	ctx.NotFound()
 }
 
 // OPTIONS for handling the OPTIONS request.
-func (c *Controller) OPTIONS(ctx *Context) {
+func (c Controller) OPTIONS(ctx *Context) {
 	ctx.NotFound()
 }
 
 // PATCH for handling the PATCH request.
-func (c *Controller) PATCH(ctx *Context) {
+func (c Controller) PATCH(ctx *Context) {
 	ctx.NotFound()
 }
 
 // POST for handling the POST request.
-func (c *Controller) POST(ctx *Context) {
+func (c Controller) POST(ctx *Context) {
 	ctx.NotFound()
 }
 
 // PUT for handling the PUT request.
-func (c *Controller) PUT(ctx *Context) {
+func (c Controller) PUT(ctx *Context) {
 	ctx.NotFound()
 }
