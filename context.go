@@ -72,24 +72,35 @@ func (ctx *Context) Logger() fasthttp.Logger {
 	return ctx.RequestCtx.Logger()
 }
 
+const (
+	// ContentTypeHTML HTML's ContentType
+	ContentTypeHTML = "text/html; charset=utf-8"
+	// ContentTypeJSON JSON's ContentType
+	ContentTypeJSON = "application/json; charset=utf-8"
+	// ContentTypeJSONP JSONP's ContentType
+	ContentTypeJSONP = "application/javascript; charset=utf-8"
+	// ContentTypeXML XML's ContentType
+	ContentTypeXML = "application/xml; charset=utf-8"
+)
+
 // SetContentTypeToHTML set Content-Type to HTML.
 func (ctx *Context) SetContentTypeToHTML() {
-	ctx.Response.Header.Set("Content-Type", "text/html; charset=utf-8")
+	ctx.Response.Header.Set("Content-Type", ContentTypeHTML)
 }
 
 // SetContentTypeToJSON set Content-Type to JSON.
 func (ctx *Context) SetContentTypeToJSON() {
-	ctx.Response.Header.Set("Content-Type", "application/json; charset=utf-8")
+	ctx.Response.Header.Set("Content-Type", ContentTypeJSON)
 }
 
 // SetContentTypeToJSONP set Content-Type to JSONP.
 func (ctx *Context) SetContentTypeToJSONP() {
-	ctx.Response.Header.Set("Content-Type", "application/javascript; charset=utf-8")
+	ctx.Response.Header.Set("Content-Type", ContentTypeJSONP)
 }
 
 // SetContentTypeToXML set Content-Type to XML.
 func (ctx *Context) SetContentTypeToXML() {
-	ctx.Response.Header.Set("Content-Type", "application/xml; charset=utf-8")
+	ctx.Response.Header.Set("Content-Type", ContentTypeXML)
 }
 
 // JSON responses JSON data to client.

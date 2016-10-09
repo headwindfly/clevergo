@@ -22,62 +22,62 @@ func NewRouter() *Router {
 	}
 }
 
-// SetSessionStore for setting session store.
+// SetSessionStore set session store.
 func (r *Router) SetSessionStore(store sessions.Store) {
 	r.sessionStore = store
 }
 
-// SetLogger for setting logger.
+// SetLogger set logger.
 func (r *Router) SetLogger(logger fasthttp.Logger) {
 	r.logger = logger
 }
 
-// SetMiddlewares for setting middlewares.
+// SetMiddlewares set middlewares.
 func (r *Router) SetMiddlewares(middlewares []Middleware) {
 	r.middlewares = middlewares
 }
 
-// AddMiddleware for adding middleware.
+// AddMiddleware add middleware.
 func (r *Router) AddMiddleware(middleware Middleware) {
 	r.middlewares = append(r.middlewares, middleware)
 }
 
-// GET for adding GET request handler.
+// GET register GET request handler.
 func (r *Router) GET(path string, handler Handler) {
-	r.Router.GET(path, r.getHandler(handler))
+	r.Handle("GET", path, handler)
 }
 
-// HEAD for adding HEAD request handler.
+// HEAD register HEAD request handler.
 func (r *Router) HEAD(path string, handler Handler) {
-	r.Router.HEAD(path, r.getHandler(handler))
+	r.Handle("HEAD", path, handler)
 }
 
-// OPTIONS for adding OPTIONS request handler.
+// OPTIONS register OPTIONS request handler.
 func (r *Router) OPTIONS(path string, handler Handler) {
-	r.Router.OPTIONS(path, r.getHandler(handler))
+	r.Handle("OPTIONS", path, handler)
 }
 
-// POST for adding POST request handler.
+// POST register POST request handler.
 func (r *Router) POST(path string, handler Handler) {
-	r.Router.POST(path, r.getHandler(handler))
+	r.Handle("POST", path, handler)
 }
 
-// PUT for adding PUT request handler.
+// PUT register PUT request handler.
 func (r *Router) PUT(path string, handler Handler) {
-	r.Router.PUT(path, r.getHandler(handler))
+	r.Handle("PUT", path, handler)
 }
 
-// PATCH for adding PATCH request handler.
+// PATCH register PATCH request handler.
 func (r *Router) PATCH(path string, handler Handler) {
-	r.Router.PATCH(path, r.getHandler(handler))
+	r.Handle("PATCH", path, handler)
 }
 
-// DELETE for adding DELETE request handler.
+// DELETE register DELETE request handler.
 func (r *Router) DELETE(path string, handler Handler) {
-	r.Router.DELETE(path, r.getHandler(handler))
+	r.Handle("DELETE", path, handler)
 }
 
-// Handle for adding custom METHOD request handler.
+// Handle register custom METHOD request handler.
 func (r *Router) Handle(method, path string, handler Handler) {
 	r.Router.Handle(method, path, r.getHandler(handler))
 }
