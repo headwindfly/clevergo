@@ -7,62 +7,47 @@
 [![GitHub release](https://img.shields.io/github/release/headwindfly/clevergo.svg?maxAge=2592000)](https://github.com/headwindfly/clevergo/releases)
 [![codebeat badge](https://codebeat.co/badges/45b10850-bf4e-40aa-b82a-48d10f2fd5aa)](https://codebeat.co/projects/github-com-headwindfly-clevergo)
 
-[:point_right:] [中文介绍](README_ZH.md)
+[:point_right:] [English](README.md)
 
-**CleverGo** is a **simple**, **high performance** and **secure** web framework for Go (golang programing language).
-It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
+**CleverGo** - Go语言编写的简单，高新能，安全的WEB框架，其非常适于设计RESTful API。
 
+CleverGo 不提供**ORM**和**模板引擎**，一是因为不想重复造轮子，二是可以自由选择喜欢的**ORM**和**模板引擎**。
 
-1. [**Features**](#features)
-2. [**Performance**](#performance)
-3. [**Installation**](#installation)
-4. [**Documentation**](#documentation)
-5. [**Middlewares**](#middlewares)
-6. [**Examples**](#examples)
-7. [**Contribution**](#contribution)
-8. [**Actual Applications**](#actual-applications)
+**如果对这个项目有兴趣，非常欢迎一起来维护[:smile:]。**
 
+另外：英文都是机翻的，所以英文说明可能不通顺。。。欢迎纠错[:smile:]。
 
-## Features
-- **High performance**
+## 特性
+- **高性能**
 
-1. CleverGo uses [**fasthttp**](https://github.com/valyala/fasthttp) instead of **net/http**, so it is more fast than net/http‘s frameworks.
-2. CleverGo's [**router**](https://github.com/clevergo/router) - a high performance router.
-3. Simple architecture.
-4. No reflect.
+1. 基于 [**fasthttp**](https://github.com/valyala/fasthttp).
+2. [**高性能路由器**](https://github.com/clevergo/router).
+3. 不使用反射.
 
-Please refer to [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark) for getting more detail.
+- **简单**
 
-- **Simple**
+CleverGo's的结构很简单, 比如 [**Middleware**](clevergo.go) 和 [**Handler**](clevergo.go).
 
-CleverGo's architecture is very simple, such as the [**Middleware**](clevergo.go) and [**Handler**](clevergo.go).
-
-- **Easy to use**
-
-We provides some examples below, see also [**Examples**](#examples).
-
-[Back to top](#readme)
+- **易用**
 
 
-## Performance
+## 性能
 
 ![Benchmark](https://github.com/smallnest/go-web-framework-benchmark/blob/master/benchmark.png)
 
-Further information is available in [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
-[Back to top](#readme)
+点击右侧链接可获得更多的性能测试信息： [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
 
-## Installation
+
+## 安装
 ```
 go get github.com/headwindfly/clevergo
 ```
 
 
-## Documentation
-**The documentations is not complete now, but we provided completed [examples](#examples).**
+## 文档
+文档还不完整，**但是已经提供了几乎完整的[例子](https://github.com/clevergo/examples).**
 - [**English**](docs/en)
 - [**中文**](docs/zh)
-
-[Back to top](#readme)
 
 
 ## Middlewares
@@ -73,8 +58,7 @@ go get github.com/headwindfly/clevergo
 | **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Middleware**](https://github.com/clevergo/csrfmiddleware)                  |
 | **JWT Middleware**   | JSON WEB TOKEN Middleware                     | [**JWT Middleware**](https://github.com/clevergo/jwtmiddleware)                    |                       
 
-[Back to top](#readme)
-
+目前中间件比较少，只提供一些常用的中间件，日后会逐步添加和完善。
 
 ## Examples
 
@@ -90,49 +74,11 @@ go get github.com/headwindfly/clevergo
 | **Captcha**          | Captcha                                       | [**Captcha**](https://github.com/clevergo/examples/tree/master/captcha)            |
 | **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)         |
 
-More examples can be found at [Examples](https://github.com/clevergo/examples).
-
-[Back to top](#readme)
+点击右侧链接查看更多例子： [Examples](https://github.com/clevergo/examples).
 
 
 ## Contribution
-1. Fork this repository.
-2. Added your code on your repository.
-3. Send pull request.
-
-[Back to top](#readme)
-
-
-## Relevant Packages
-Most of packages can be found at https://github.com/clevergo.
-
-- [**fasthttp**](https://github.com/valyala/fasthttp)
-- [**router**](https://github.com/clevergo/router)
-- [**websocket**](https://github.com/clevergo/websocket)
-- [**sessions**](https://github.com/clevergo/sessions)
-- [**captcha**](https://github.com/clevergo/captcha)
-- [**csrf**](https://github.com/clevergo/csrf)
-- [**jwt**](https://github.com/clevergo/jwt)
-- [**utils**](https://github.com/clevergo/utils)
-- [**pagination**](https://github.com/clevergo/pagination)
-- [**i18n**](https://github.com/clevergo/i18n)
-- [**assets**](https://github.com/clevergo/assets)
-
-[Back to top](#readme)
-
-
-## Actual Applications
-- [**HeadwindFly.com**](https://github.com/headwindfly/headwindfly.com): https://github.com/headwindfly/headwindfly.com
-
-    1. [https://headwindfly.com](http://headwindfly.com)
-    2. [https://docs.headwindfly.com](https://docs.headwindfly.com)
-    3. [https://accounts.headwindfly.com](https://accounts.headwindfly.com)
-    4. [https://backend.headwindfly.com](https://backend.headwindfly.com)
-    5. [https://helpers.headwindfly.com](https://helpers.headwindfly.com)
-    6. [https://api.headwindfly.com](https://api.headwindfly.com)
-
-**How to add my application?**
-
-Fork and added your application in **README.md** and then send pull request.
-
-[Back to top](#readme)
+1. Fork 当前的仓库
+2. 在fork的仓库修改代码
+3. 发送 pull request.
+4. 等待合并
