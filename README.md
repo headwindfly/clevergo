@@ -1,4 +1,7 @@
 # CleverGo
+
+### It is recommend to use [Gem](https://github.com/go-gem/gem) framework.
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/headwindfly/clevergo)](https://goreportcard.com/report/github.com/headwindfly/clevergo)
 [![GoDoc](https://godoc.org/github.com/headwindfly/clevergo?status.svg)](https://godoc.org/github.com/headwindfly/clevergo)
 [![Build Status](https://travis-ci.org/headwindfly/clevergo.svg?branch=master)](https://travis-ci.org/headwindfly/clevergo)
